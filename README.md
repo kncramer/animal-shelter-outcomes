@@ -69,11 +69,11 @@ All data used for this project is from [City of Austin Open Data](https://data.a
 * Neural Network
 * 
 
-## 6. Evaluation
+### 6. Evaluation
 
 
  
-## 7. Conclusion and Recommendations
+### 7. Conclusion and Recommendations
 
 
-### Future improvements:
+#### Future improvements:
