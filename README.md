@@ -1,6 +1,6 @@
 # Group Project: Animal Shelters
 
-## [Part 1: Intro and Data Cleaning](./code/01_data_cleaning.ipynb)
+## [Part 1: Intro and Data Cleaning](./code/01-data-cleaning.ipynb)
 ---
 ### 1. Introduction 
 
@@ -55,18 +55,20 @@ The data from both Austin and Dallas required cleaning before being ready to ana
 
 ### 3. Exploratory Data Analysis
 
-Overall Dallas has more pets in their shelters, they also euthanize a larger percentage of these animals. This could be due to space constraints since they are taking in more animals.
+Overall Dallas has more pets in their shelters, they also euthanize a larger percentage of these animals. This could be due to space constraints since they are taking in more animals. The larger disparagy between all outcomes and positive outcomes for Dallas compared to Austin can be seen below.
 
 <img src='./images/compare_outcomes_austin.png'/>
 <img src='./images/compare_outcomes_dallas.png'/>
 
+We also found the most represented breed was overwhelmingly Pit Bull Mixes. This would account for the larger number of this breed being euthanized.
 
+<img src='./images/breeds_over_represented.png'/>
 
 
 
 ## Part 3: Preprocessing and Modeling
+#### [Logistic Regression Prediction Repeat Pets](./code/03.1-repeat_animals-model_tuning.ipynb)
 #### [Logistic Regression Predictions](./code/03.2-model-tuning-logistic-regression.ipynb)
-#### [Logistic Regression Prediction Repeat Pets]()
 #### [Neural Network Predictions](./code/03.3-modeling-neural-networks.ipynb)
 ---
 
@@ -90,47 +92,39 @@ Overall Dallas has more pets in their shelters, they also euthanize a larger per
     - number of days in the shelter before outcome
 
 
-**Neural Network**
-
 
 ### <center>Baseline model</center>
 ||Accuracy|
 |---|---|
 |**Austin**|0.63|
 |**Dallas**|0.45|
-
+<br>
 ### <center>Logistic Regression Prediction Performance</center>
-
 ||Accuracy|Precision|Specificity|
 |---|---|---|---|
 |**Austin**|0.83|0.84|0.67|
 |**Dallas**|0.74|0.70|0.75|
-
+<br>
 ### <center>Neural Net Prediction Performance</center>
-
 ||Accuracy|Precision|Specificity|
 |---|---|---|---|
 |**Austin**|0.82|0.84|0.72|
 |**Dallas**|0.80|0.71|0.70|
 
 
-* Neural Network
-|        | Accuracy | Precision | Specificity |
-|-------:|---------:|----------:|-------------|
-| Austin |     0.82 |      0.84 |        0.72 |
-| Dallas |     0.80 |      0.71 |        0.70 |
 
 ### 5. Conclusion and Recommendations
-* For Austin data set,
+* For the Austin data set:
     * Overall, both Austin models performed competitively, achieving accuracies of 83% and 82% respectively. These results indicate a strong ability to predict adoption outcomes based on the characteristics of the animals.
-    * Model Performance: The logistic regression model outperformed the neural network slightly, suggesting that for this particular dataset, the linear relationships captured by logistic regression may be more representative of the adoption dynamics than the more complex relationships modeled by the neural network.
-    * Key Characteristics: For the regrssion models, identifying specific characteristics that correlate with adoption likelihood is crucial(during the feature selection). Factors such as age, breed, spay/neuter, health status may play significant roles in influencing adoption outcomes. Understanding these correlations can guide the development of tailored marketing strategies to highlight animals that may be overlooked.
+    * Model Performance: The logistic regression model outperformed the neural network slightly in accuracy but the neural net had a higher specificity, suggesting that for this particular dataset, the linear relationships captured by logistic regression may be more representative of the adoption dynamics than the more complex relationships modeled by the neural network.
+    * Key Characteristics: For the regression models, identifying specific characteristics that correlate with adoption likelihood is crucial(during the feature selection). Factors such as age, breed, spay/neuter, health status may play significant roles in influencing adoption outcomes. Understanding these correlations can guide the development of tailored marketing strategies to highlight animals that may be overlooked.
 * For Dallas data set,
     * The intake and outcome records of Dallas shelters come with less information compared to the Austin shelter, which is a challenge for our models due to the limited information.
 
 #### Future improvements:
 For the data aspect, we could collaborate with local shelters to gather more detailed information. Continuous monitoring of adoption outcomes and the effectiveness of implemented strategies will be vital. Additionally, exploring other classification models or ensemble methods could provide further improvements in prediction accuracy and insight.
 
-For the neural network, there are potential functionalities we can add to help shelters:
-* NLP: If shelters can provide more detailed animal descriptions, we can utilize the text features for prediction by adding NLP to the model.
-* Image: The animal records also contain breed information. We can add image classification functionality to recognize breed and animal types.
+There are potential functionalities we can add to help shelters:
+* If shelters can provide more detailed animal descriptions, we can utilize the text features for prediction by adding more NLP to the model.
+* The animal records also contain breed information. If shelters also include images, we can add image classification functionality to recognize breed and animal types.
+* With further model improvements with more detailed and consistent data collection between different city's shelters, further functionality can be added to the simple [prediciton streamlit app](./code/prediction-probabilities-app.py) provided to not only predict an animal's outcome but also make recommendations for which specific cities they would have better chances in.
