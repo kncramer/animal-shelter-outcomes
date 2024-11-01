@@ -50,7 +50,7 @@ All data used for this project is from [City of Austin Open Data](https://data.a
 
 The data from both Austin and Dallas required cleaning before being ready to analyze and model. They both had columns identifying the intake and outcome dates of each pet that needed to be sorted and converted to the correct data type. The Austin data had to be appropriately combined with the same animal ID's matching their income and outcome dates. The Dallas data needed to be combined for each year that was reported, each animal's intake and outcome were already matched. We also made the decision to drop columns that we felt wouldn't impact the outcome of an animal (e.g. name, 
 
-## [Part 2: Exploratory Data Analysis](./code/02-eda.ipynb)
+## [Part 2: Exploratory Data Analysis](./code/02-eda-final.ipynb)
 ---
 
 ### 3. Exploratory Data Analysis
