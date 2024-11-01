@@ -162,4 +162,4 @@ cython_debug/
 #.idea/
 
 # virtual_documents
-.virtual_documents
+.virtual_documents/
