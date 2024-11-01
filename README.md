@@ -1,6 +1,6 @@
 # Group Project: Animal Shelters
 
-## [Part 1: Intro and Data Cleaning](./code/01_data_cleaning.ipynb)
+## [Part 1: Intro and Data Cleaning](code/01_data_cleaning.ipynb)
 ---
 ### 1. Introduction 
 
@@ -50,7 +50,7 @@ All data used for this project is from [City of Austin Open Data](https://data.a
 
 The data from both Austin and Dallas required cleaning before being ready to analyze and model. They both had columns identifying the intake and outcome dates of each pet that needed to be sorted and converted to the correct data type. The Austin data had to be appropriately combined with the same animal ID's matching their income and outcome dates. The Dallas data needed to be combined for each year that was reported, each animal's intake and outcome were already matched. We also made the decision to drop columns that we felt wouldn't impact the outcome of an animal (e.g. name, 
 
-## [Part 2: Exploratory Data Analysis](./code/02-eda.ipynb)
+## [Part 2: Exploratory Data Analysis](code/02-eda.ipynb)
 ---
 
 ### 3. Exploratory Data Analysis
@@ -67,9 +67,9 @@ We also found the most represented breed was overwhelmingly Pit Bull Mixes. This
 
 
 ## Part 3: Preprocessing and Modeling
-#### [Logistic Regression Prediction Repeat Pets](./code/03.1-repeat_animals-model_tuning.ipynb)
-#### [Logistic Regression Predictions](./code/03.2-model-tuning-logistic-regression.ipynb)
-#### [Neural Network Predictions](./code/03.3-modeling-neural-networks.ipynb)
+#### [Logistic Regression Prediction Repeat Pets](code/03.1-repeat_animals-model_tuning.ipynb)
+#### [Logistic Regression Predictions](code/03.2-model-tuning-logistic-regression.ipynb)
+#### [Neural Network Predictions](code/03.3-modeling-neural-networks.ipynb)
 ---
 
 ### 4. Modeling and Evaluation
@@ -127,4 +127,4 @@ For the data aspect, we could collaborate with local shelters to gather more det
 There are potential functionalities we can add to help shelters:
 * If shelters can provide more detailed animal descriptions, we can utilize the text features for prediction by adding more NLP to the model.
 * The animal records also contain breed information. If shelters also include images, we can add image classification functionality to recognize breed and animal types.
-* With further model improvements with more detailed and consistent data collection between different city's shelters, further functionality can be added to the simple [prediciton streamlit app](./code/prediction-probabilities-app.py) provided to not only predict an animal's outcome but also make recommendations for which specific cities they would have better chances in.
+* With further model improvements with more detailed and consistent data collection between different city's shelters, further functionality can be added to the simple [prediciton streamlit app](code/prediction-probabilities-app.py) provided to not only predict an animal's outcome but also make recommendations for which specific cities they would have better chances in.
