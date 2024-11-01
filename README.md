@@ -46,7 +46,7 @@ All data used for this project is from [City of Austin Open Data](https://data.a
 
 ### 2. Data Cleaning
 
-
+The data from both Austin and Dallas required cleaning before being ready to analyze and model. They both had columns identifying the intake and outcome dates of each pet that needed to be sorted and converted to the correct data type. The Austin data had to be appropriately combined with the same animal ID's matching their income and outcome dates. The Dallas data just needed to be combined for each year that was reported, each animal's intake and outcome were already matched.
 
 
 ## [Part 2: Exploratory Data Analysis]()
@@ -54,7 +54,10 @@ All data used for this project is from [City of Austin Open Data](https://data.a
 
 ### 3. Exploratory Data Analysis
 
+Overall Dallas has more pets in their shelters, they also euthanize a larger percentage of these animals. This could be due to space constraints since they have to manage to take in more animals.
 
+<img src='../images/compare_outcomes_austin.png'/>
+<img src='../images/compare_outcomes_dallas.png'/>
 
 
 ## [Part 3: Preprocessing and Modeling]()
