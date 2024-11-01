@@ -1,6 +1,6 @@
 # Group Project: Animal Shelters()
 
-## [Part 1: Intro and Data Cleaning](code/01_data_cleaning.ipynb)
+## [Part 1: Intro and Data Cleaning](./code/01_data_cleaning.ipynb)
 ---
 ### 1. Introduction 
 
@@ -10,6 +10,8 @@ Despite ongoing efforts to increase animal adoption rates in shelters, many anim
 The goal of this project is to predict the likelihood of adoption for animals using classification models and identifying specific characteristics that correlate with lower/higher adoption likelihood. When certrain animals fall into the "not adopted" category, it is essential to develop alternative strategies to prevent euthanasia for these at-risk animals and implement targeted interventions such as specialized marketing, behavioral training, foster programs, or partnerships with other rescue organizations.
 
 By understanding the predictors of adoption, shelters can adjust their operational strategies. This will not only improve adoption rates but also ensure that animals receive the care and support to find new homes or alternative solutions, thereby minimizing the incidence of euthanasia and promoting a more humane approach to animal welfare.
+
+The metrics we are looking to optimize are accuracy and specificity, with specificity being the priority. To be production ready accuracy should be above 80% and specificity above 70%.
 
 #### Outcome Definition
 Outcome types "adoption", "return to owner", and 'foster' are classified as the positive outcomes, while other outcome types are classified as the negative outcomes.
@@ -46,34 +48,69 @@ All data used for this project is from [City of Austin Open Data](https://data.a
 
 ### 2. Data Cleaning
 
-The data from both Austin and Dallas required cleaning before being ready to analyze and model. They both had columns identifying the intake and outcome dates of each pet that needed to be sorted and converted to the correct data type. The Austin data had to be appropriately combined with the same animal ID's matching their income and outcome dates. The Dallas data just needed to be combined for each year that was reported, each animal's intake and outcome were already matched.
+The data from both Austin and Dallas required cleaning before being ready to analyze and model. They both had columns identifying the intake and outcome dates of each pet that needed to be sorted and converted to the correct data type. The Austin data had to be appropriately combined with the same animal ID's matching their income and outcome dates. The Dallas data needed to be combined for each year that was reported, each animal's intake and outcome were already matched. We also made the decision to drop columns that we felt wouldn't impact the outcome of an animal (e.g. name, 
 
-
-## [Part 2: Exploratory Data Analysis]()
+## [Part 2: Exploratory Data Analysis](./code/02-eda.ipynb)
 ---
 
 ### 3. Exploratory Data Analysis
 
-Overall Dallas has more pets in their shelters, they also euthanize a larger percentage of these animals. This could be due to space constraints since they have to manage to take in more animals.
+Overall Dallas has more pets in their shelters, they also euthanize a larger percentage of these animals. This could be due to space constraints since they are taking in more animals.
 
-<img src='../images/compare_outcomes_austin.png'/>
-<img src='../images/compare_outcomes_dallas.png'/>
+<img src='./images/compare_outcomes_austin.png'/>
+<img src='./images/compare_outcomes_dallas.png'/>
 
 
-## [Part 3: Preprocessing and Modeling]()
+
+
+## Part 3: Preprocessing and Modeling
+#### [Logistic Regression Predictions](./code/03.2-model-tuning-logistic-regression.ipynb)
+#### [Logistic Regression Prediction Repeat Pets]()
+#### [Neural Network Predictions](./code/03.3-modeling-neural-networks.ipynb)
 ---
 
 ### 4. Preprocessing
 
 
 ### 5. Modeling
-* Baseline model
-* Logistic Regregression
-* Neural Network
-* 
+
+For predicting animal outcomes the baseline accuracy for Austin pets is 66% and the baseline accuracy for Dallas pets is 55%. The goal with model tuning was to maximize specificity (correctly predicting a negative outcome) and accuracy.
+<br>
+**Logistic Regression**
+* Austin - Iterated several singular Logistic Regression models implementing different subsets of features, best performance achieved when putting the best singular Logistic Regression, a RandomForestClassifier, and an AdaBoostClassifier with a StackingClassifer with another Logistic Regression as the final estimator. The features used in this final model were:
+    - animal type (cat or dog)
+    - intake age
+    - if they get spayed or neutered in the shelter
+    - number of days in the shelter before outcome
+    - breed
+    - intake type
+    - intake condition
+* Dallas - The data from Dallas did not have as many features to include in the model, tried using all available but ended up getting the best specificity without intake condition. The best performing model was also a StackingClassifier with the same first level estimators and final estimator as Dallas, just with different hyperparameters for regularizing. The remaining features included were:
+    - animal type (cat or dog)
+    - breed
+    - intake type
+    - reason for intake
+    - number of days in the shelter before outcome
+
+
+**Neural Network**
+
 
 ### 6. Evaluation
 
+### <center>Logistic Regression Prediction Performance</center>
+
+||Accuracy|Precision|Specificity|
+|---|---|---|---|
+|**Austin**|0.83|0.84|0.67|
+|**Dallas**|0.74|0.70|0.75|
+
+### <center>Neural Net Prediction Performance</center>
+
+||Accuracy|Precision|Specificity|
+|---|---|---|---|
+|**Austin**|0.82|0.84|0.72|
+|**Dallas**|0.80|0.71|0.70|
 
  
 ### 7. Conclusion and Recommendations
