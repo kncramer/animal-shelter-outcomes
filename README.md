@@ -93,19 +93,21 @@ We also found the most represented breed was overwhelmingly Pit Bull Mixes. This
 
 
 
-### <center>Baseline model</center>
+### Baseline model
 ||Accuracy|
 |---|---|
 |**Austin**|0.63|
 |**Dallas**|0.45|
 <br>
-### <center>Logistic Regression Prediction Performance</center>
+
+### Logistic Regression Prediction Performance
 ||Accuracy|Precision|Specificity|
 |---|---|---|---|
 |**Austin**|0.83|0.84|0.67|
 |**Dallas**|0.74|0.70|0.75|
 <br>
-### <center>Neural Net Prediction Performance</center>
+
+### Neural Net Prediction Performance
 ||Accuracy|Precision|Specificity|
 |---|---|---|---|
 |**Austin**|0.82|0.84|0.72|
